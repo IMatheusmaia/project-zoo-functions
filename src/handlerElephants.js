@@ -33,4 +33,4 @@ const handlerElephants = (param) => {
   return computeData(param, elephants);
 };
 
-module.exports = { getElephants, averageAge, computeData, handlerElephants };
+module.exports = handlerElephants;
