@@ -9,15 +9,16 @@ const board = {
   Sunday: { open: 8, close: 8 },
   Monday: { open: 0, close: 0 },
 };
+const closedMessage = 'The zoo is closed';
 
 describe('Testes da função getOpeningHours', () => {
   it('Verifica se a função ao não receber nenhum parâmetro, retorna o objeto com todos os dias e horários disponíveis', () => {
     expect(getOpeningHours()).toEqual(board);
   });
   it('Verifica se a função ao receber parâmetros válidos,retorna a mensagem correta', () => {
-    expect(getOpeningHours('Monday', '09:00-AM')).toBe('The zoo is closed');
+    expect(getOpeningHours('Monday', '09:00-AM')).toBe(closedMessage);
     expect(getOpeningHours('Tuesday', '09:00-AM')).toBe('The zoo is open');
-    expect(getOpeningHours('Wednesday', '09:00-PM')).toBe('The zoo is closed');
+    expect(getOpeningHours('Wednesday', '09:00-PM')).toBe(closedMessage);
   });
   it('Verifica se a função ao receber um dia da semana inválido, retorna a mensagem correta', () => {
     expect(() => getOpeningHours('Sexta-Feira', '09:00-PM')).toThrow('The day must be valid. Example: Monday');
@@ -37,6 +38,6 @@ describe('Testes da função getOpeningHours', () => {
   });
   it('Verifica se fornecer horário limite de abertura e fechamento, recebe a mensagem correta', () => {
     expect(getOpeningHours('Friday', '10:00-AM')).toBe('The zoo is open');
-    expect(getOpeningHours('Friday', '08:00-PM')).toBe('The zoo is closed');
+    expect(getOpeningHours('Friday', '08:00-PM')).toBe(closedMessage);
   });
 });
