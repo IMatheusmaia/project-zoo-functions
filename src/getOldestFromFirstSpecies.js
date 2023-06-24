@@ -13,6 +13,6 @@ const getOldestFromFirstSpecies = (id) => {
   const older = ageList.residents.sort((a, b) => b.age - a.age);
   return Object.values(older[0]);
 };
-console.log(getOldestFromFirstSpecies());
+getOldestFromFirstSpecies();
 
 module.exports = getOldestFromFirstSpecies;
